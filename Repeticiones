@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	
+	
+	FILE* archivo = fopen("texto1.txt", "r");
+	int i,caracter;
+	char letras[28] = {'a', 'b', 'c', 'd', 'e', 'f', 'g','h', 'i', 'j', 'k', 'l', 'm', 'n','ñ', 'o', 'p', 'q', 'r', 's', 't',
+    'u', 'v', 'w', 'x', 'y', 'z',' '};
+	int repletras[28];
+
+	for (i = 0; i < 28; i++)
+	{
+		repletras[i]=0;
+	}
+
+	while((caracter=fgetc(archivo)) != EOF)
+	{
+		for (i = 0; i < 28; i++)
+		{
+			if(letras[i]==caracter)
+			{
+				repletras[i]++;
+			}
+
+		}
+	}
+
+	for (i = 0; i < 28; i++)
+	{
+		printf("%d.-%d\n",i+1,repletras[i]);
+		
+	}
+
+
+}
